@@ -9,6 +9,10 @@ exports.config = {
     ],
     framework: "mocha",
     waitforTimeout: 20000,
+    mochaOpts: {
+        timeout: 30000
+    }
+    ,
     capabilities: [{
         "platformName": "Android",
         "platformVersion": "8.1",
