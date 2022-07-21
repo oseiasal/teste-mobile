@@ -1,5 +1,15 @@
 class Forms {
 
+    get #modalText() {
+        return $('android=new UiSelector().className("android.widget.TextView").instance(1)')
+    }
+
+    async getModalText() {
+        await this.#modalText.waitForExist()
+
+        return await this.#modalText.getText()
+    }
+
     async goToForm() {
         const formSelector = 'new UiSelector().text("Forms")'
         const button = await $(`android=${formSelector}`)
@@ -26,6 +36,7 @@ class Forms {
         const activeButtonSelector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains("Active").instance(0))'
         const activeButton = await $(`android=${activeButtonSelector}`)
         await activeButton.click()
+
 
     }
 }
